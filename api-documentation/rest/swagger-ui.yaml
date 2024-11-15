@@ -1,0 +1,161 @@
+openapi: 3.0.1
+info:
+  title: Login Example
+  description: Example Login Service
+  contact:
+    name: Alessandro Pagliaro
+    url: _
+  license:
+    name: GPL
+    url: ''
+  version: '1.0.0'
+servers:
+  - url: http://localhost:8080
+    description: Generated server url
+paths:
+  /authentication:
+    post:
+      tags:
+        - Authentication Controller
+      summary: Execute the specified model and version.
+      operationId: authenticate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AuthenticationDTO'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/GenericResponseSuccessfullAuthenticationDTO'
+        '400':
+          description: Bad data
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/GenericResponse'
+        '401':
+          description: Bad credentials
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/GenericResponse'
+  /version:
+    get:
+      tags:
+        - ApplicationVersion Controller
+      operationId: getApplicationVersion
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/GenericResponseString'
+components:
+  schemas:
+    AuthenticationDTO:
+      type: object
+      properties:
+        username:
+          type: string
+        password:
+          type: string
+    GenericResponse:
+      type: object
+      properties:
+        version:
+          type: string
+          description: Version of the application
+          example: 1.0.0
+        data:
+          type: object
+          description: Response data
+        code:
+          type: integer
+          description: Response code
+          format: int32
+          example: 200
+        message:
+          type: string
+          description: Response message
+          example: OK
+        subcode:
+          type: integer
+          description: 'Response subcode. Use it to understand what is the '
+          format: int32
+          example: 0
+        operationIdentifier:
+          type: string
+          description: Operation identifier
+          example: e018c45d-42ba-4724-9fdf-e898824d5328
+      description: GenericResponse
+    GenericResponseSuccessfullAuthenticationDTO:
+      type: object
+      properties:
+        version:
+          type: string
+          description: Version of the application
+          example: 1.0.0
+        data:
+          $ref: '#/components/schemas/SuccessfullAuthenticationDTO'
+        code:
+          type: integer
+          description: Response code
+          format: int32
+          example: 200
+        message:
+          type: string
+          description: Response message
+          example: OK
+        subcode:
+          type: integer
+          description: 'Response subcode. Use it to understand what is the '
+          format: int32
+          example: 0
+        operationIdentifier:
+          type: string
+          description: Operation identifier
+          example: e018c45d-42ba-4724-9fdf-e898824d5328
+      description: GenericResponse
+    SuccessfullAuthenticationDTO:
+      type: object
+      properties:
+        authToken:
+          type: string
+          description: Authentication Token
+          example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
+      description: SuccessfullAuthenticationDTO
+    GenericResponseString:
+      type: object
+      properties:
+        version:
+          type: string
+          description: Version of the application
+          example: 1.0.0
+        data:
+          type: string
+          description: Response data
+        code:
+          type: integer
+          description: Response code
+          format: int32
+          example: 200
+        message:
+          type: string
+          description: Response message
+          example: OK
+        subcode:
+          type: integer
+          description: 'Response subcode. Use it to understand what is the '
+          format: int32
+          example: 0
+        operationIdentifier:
+          type: string
+          description: Operation identifier
+          example: e018c45d-42ba-4724-9fdf-e898824d5328
+      description: GenericResponse
