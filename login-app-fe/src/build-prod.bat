@@ -1,2 +1,2 @@
-call ng build --prod --base-href /
+call ng build --configuration production --aot --base-href /
 pause
