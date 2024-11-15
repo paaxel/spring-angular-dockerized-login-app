@@ -16,29 +16,7 @@ Before starting, ensure you have the following tools installed:
 
 ## Installation Options
 
-### 1. Docker Installation (Recommended)
-
-The easiest way to get started is using Docker Compose.
-
-1. Build the backend JAR `/web/target/*.jar` (is suggested to use an IDE)
-
-2. Configure environment variables (optional):
-   ```
-   DATASOURCE_PASSWORD - Database password
-   SECURITY_JWT_SECRET - JWT token signing secret
-   API_URL - Backend base URL
-   ```
-
-3. Start the application:
-   ```bash
-   docker-compose up
-   ```
-
-4. Access the application:
-   - Frontend: `http://localhost:8081`
-   - Backend: `http://localhost:8080`
-
-### 2. Standard Installation (Local Development)
+### 1. Run with IDE
 
 #### Database Setup
 1. Navigate to `login-app-db-initializer/sql`
@@ -80,6 +58,28 @@ api-documentation/
 └── soap/         # SOAP API documentation
 ```
 
+### 1. Run on DOcker
+
+The easiest way to get started is using Docker Compose.
+
+1. Build the backend JAR `/web/target/*.jar` (is suggested to use an IDE)
+
+2. Configure environment variables (optional):
+   ```
+   DATASOURCE_PASSWORD - Database password
+   SECURITY_JWT_SECRET - JWT token signing secret
+   API_URL - Backend base URL
+   ```
+
+3. Start the application:
+   ```bash
+   docker-compose up
+   ```
+
+4. Access the application:
+   - Frontend: `http://localhost:8081`
+   - Backend: `http://localhost:8080`
+   
 ## Contributing
 
 We welcome contributions! Here's how you can help:
