@@ -9,7 +9,8 @@ RUN npm install
 COPY . .
 RUN npm install -g @angular/cli
 #RUN ng build --configuration production --output-path=/dist
-RUN ng build --prod --base-href / --output-path=/dist
+RUN ng build --configuration production --aot --base-href / --output-path=/dist
+
 
 ################
 # Run in NGINX #
