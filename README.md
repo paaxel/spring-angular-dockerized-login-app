@@ -71,7 +71,7 @@ The easiest way to get started is using Docker Compose.
    - Frontend: `http://localhost:8081`
    - Backend: `http://localhost:8080`
 
-   
+
 ## API Documentation
 
 The API documentation is organized in the `api-documentation` directory:
@@ -129,3 +129,4 @@ We acknowledge and appreciate the following third-party libraries and resources 
 - Angular
 - PostgreSQL
 - Docker
+- Temurin JDK
