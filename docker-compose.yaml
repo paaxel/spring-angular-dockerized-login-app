@@ -5,7 +5,7 @@ services:
     image: palex/prova-login-be:1.0.0
     container_name: prova-login-be
     build:
-      context: ./login-app-fe
+      context: ./login-app-be
       dockerfile: Dockerfile
     restart: always
     environment:
