@@ -1,0 +1,23 @@
+@import "../../../../colors.scss"; 
+
+footer.sticky-footer {
+    position: relative;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 56px;
+    background-color: #fff;
+    line-height: 55px;
+    z-index: -1;
+}
+
+footer.sticky-footer small{
+    color: $stronger-primary !important;
+}
+
+@media(max-width: 350px){
+    footer.sticky-footer small{
+        font-size: 10px;
+    }
+}
+

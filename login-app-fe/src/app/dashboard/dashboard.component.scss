@@ -1,0 +1,12 @@
+#page-content-wrapper {
+  width: 100%;
+  min-height: -o-calc(100vh - 113px); /* opera */
+  min-height: -webkit-calc(100vh - 113px); /* google, safari */
+  min-height: -moz-calc(100vh - 113px); /* firefox */
+  min-height: calc(100vh - 113px); /* other */
+  position: relative;
+  padding-top: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-top: 56px;
+}

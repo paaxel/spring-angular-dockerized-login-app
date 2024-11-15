@@ -1,0 +1,21 @@
+<div class="container-fluid">
+
+        
+<h4>
+    {{ "label.logged-user"  | translate }}
+</h4>
+
+<span class="d-block">
+    <b>{{ "label.name-and-surname" | translate }}:</b> {{name}} {{surname}}
+</span>
+
+<span class="d-block">
+    <b>{{ "label.user-id" | translate }}:</b> {{userId}}
+</span>
+<span class="d-block">
+    <b>{{ "label.registration-date" | translate }}:</b> {{ registrationDate | dateFormat: 'short'}}
+</span>
+
+
+
+</div>

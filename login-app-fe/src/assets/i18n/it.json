@@ -1,0 +1,35 @@
+{
+    "label.product-name": "Demo Login App",
+    "message.copyright-note": "Free Software. GPLv3.0 Licence",
+
+    "label.login": "Entra",
+    "label.username": "Username",
+    "label.password": "Password",
+    "label.logout": "Logout",
+    "label.logged-user": "Utente loggato",
+    "label.user-id": "ID",
+    "label.registration-date": "Data di registrazione",
+    "label.name-and-surname": "Nome e cognome",
+
+    "modal.logout-button-confirmation": "Continua",
+    "modal.logout-button-cancel": "Annulla",
+    "modal.logout-title": "Sicuro di voler Uscire ? ",
+
+    "message.connection-error": "Il servizio non è disponibile in questo momento o ha generato un errore",
+    "message.auth-error": "I dettagli di autenticazione non sono validi o il tuo account è stato disabilitato",
+    "message.unreachable-server": "Server non raggiungibile",
+    "message.internal-server-error": "Errore interno del server",
+    "message.forbidden": "Accesso negato",
+    "message.unauthorized": "Non autenticato",
+    "message.generic-error": "Errore generico",
+    "message.bad-data": "Dati non validi",
+    "message.not-found": "Entità non trovata",
+
+    "message.success": "Successo",
+    "message.info": "Info",
+    "message.error": "Errore",
+    "message.warning": "Attenzione",
+
+
+    "last.dummy": "Dummy for translation loader"
+}

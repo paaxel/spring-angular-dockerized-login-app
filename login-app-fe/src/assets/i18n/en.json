@@ -1,0 +1,34 @@
+{
+    "label.product-name": "Demo Login App",
+    "message.copyright-note": "Free Software. GPLv3.0 License",
+
+    "label.login": "Login",
+    "label.username": "Username",
+    "label.password": "Password",
+    "label.logout": "Logout",
+    "label.logged-user": "Logged-in user",
+    "label.user-id": "ID",
+    "label.registration-date": "Registration date",
+    "label.name-and-surname": "Name and surname",
+
+    "modal.logout-button-confirmation": "Continue",
+    "modal.logout-button-cancel": "Cancel",
+    "modal.logout-title": "Are you sure you want to log out?",
+
+    "message.connection-error": "The service is not available at the moment or has generated an error",
+    "message.auth-error": "The authentication details are invalid, or your account has been disabled",
+    "message.unreachable-server": "Server unreachable",
+    "message.internal-server-error": "Internal server error",
+    "message.forbidden": "Access denied",
+    "message.unauthorized": "Unauthorized",
+    "message.generic-error": "Generic error",
+    "message.bad-data": "Invalid data",
+    "message.not-found": "Entity not found",
+
+    "message.success": "Success",
+    "message.info": "Info",
+    "message.error": "Error",
+    "message.warning": "Warning",
+
+    "last.dummy": "Dummy for translation loader"
+}
