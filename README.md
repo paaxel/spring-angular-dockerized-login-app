@@ -48,17 +48,8 @@ Before starting, ensure you have the following tools installed:
    - `http://localhost:8080`
    - `http://localhost:8080/version`
 
-## API Documentation
 
-The API documentation is organized in the `api-documentation` directory:
-
-```
-api-documentation/
-├── rest/         # REST API documentation
-└── soap/         # SOAP API documentation
-```
-
-### 1. Run on DOcker
+### 2. Run on Docker
 
 The easiest way to get started is using Docker Compose.
 
@@ -79,7 +70,18 @@ The easiest way to get started is using Docker Compose.
 4. Access the application:
    - Frontend: `http://localhost:8081`
    - Backend: `http://localhost:8080`
+
    
+## API Documentation
+
+The API documentation is organized in the `api-documentation` directory:
+
+```
+api-documentation/
+├── rest/         # REST API documentation
+└── soap/         # SOAP API documentation
+```
+
 ## Contributing
 
 We welcome contributions! Here's how you can help:
