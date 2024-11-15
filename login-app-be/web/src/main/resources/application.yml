@@ -1,0 +1,73 @@
+logging:
+  config: classpath:logging/logback.xml
+spring:
+  application:
+    name: core
+  main:
+    web-application-type: servlet
+management.endpoints.web.exposure.include: info,env
+management.endpoint.env.enabled: true
+management.endpoint.info.enabled: true
+
+server:
+  port: 8080
+
+application:
+  formatted-version: 1.0.0
+  timezone: UTC
+
+##################### SWAGGER #####################
+swagger:
+  api:
+    title: Prova Login
+    description: Prova Login Service (Test FAAC)
+    version: 1.0.0
+    termsOfServiceUrl:
+    contact.name: Alessandro Pagliaro
+    contact.site-url: _
+    contact.site-email:
+    license: GPL
+    licenseUrl:
+
+#################### SECURITY #######################
+security:
+  cors:
+    allowed_headers: Content-Type,X-Requested-With,accept,Origin,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization,Content-Disposition
+    exposed_headers: Access-Control-Allow-Origin,Access-Control-Allow-Credentials,Authorization,Content-Disposition
+    allowed_origins: "*"
+    allowed_methods: GET,PUT,POST,DELETE,PATCH
+    allow_credentials: true
+    max_age: 180
+  auth:
+    header: Authorization
+  proxy:
+    type: CLOUDFLARE
+  login:
+    bcrypt:
+      streght: 10
+  jwt:
+    secret:
+    #duration expressed in seconds 86400=24hours
+    duration: 86400
+
+###################### DATABASE #####################
+persistence:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url:
+    username:
+    password:
+  hibernate:
+    default_schema: login_app_db
+    ddl-auto: none
+    dialect: org.hibernate.dialect.PostgreSQLDialect
+    jdbc:
+      lob:
+        non_contextual_creation: true
+    c3p0:
+      max_size: 100
+      min_size: 2
+      acquire_increment: 1
+      idle_test_period: 300
+      max_statements: 50
+      timeout: 300

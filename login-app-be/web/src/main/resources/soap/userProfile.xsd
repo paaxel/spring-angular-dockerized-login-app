@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://provaLogin.palex.it/web/soap"
+           targetNamespace="http://provaLogin.palex.it/web/soap" elementFormDefault="qualified">
+
+    <xs:element name="getProfileRequest">
+        <xs:complexType>
+            <xs:sequence>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+    <xs:element name="getProfileResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="profile" type="tns:profile"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="profile">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="surname" type="xs:string"/>
+            <xs:element name="id" type="xs:int"/>
+            <xs:element name="registrationDate" type="xs:date"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>
