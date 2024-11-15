@@ -1,0 +1,94 @@
+version: "3.1"
+services:
+ 
+  prova-login-be:
+    image: palex/prova-login-be:1.0.0
+    container_name: prova-login-be
+    build:
+      context: ./login-app-fe
+      dockerfile: Dockerfile
+    restart: always
+    environment:
+      # replace the jwt value with a secret (just a random long string)
+      - SECURITY_JWT_SECRET=<your-secure-random-string>
+      - PERSISTENCE_DATASOURCE_URL=jdbc:postgresql://postgre-db:5432/postgres
+      # replace with password used in postgres database
+      - PERSISTENCE_DATASOURCE_USERNAME=postgres
+      - PERSISTENCE_DATASOURCE_PASSWORD=<your-database-password>
+
+    networks:
+      - provaloginnet
+    ports:
+      - "8080:8080"
+    depends_on:
+      postgre-db:
+        condition: service_healthy
+
+
+  prova-login-fe:
+    image: palex/prova-login-fe:1.0.0
+    container_name: prova-login-fe
+    build:
+      context: ./login-app-fe
+      dockerfile: Dockerfile
+    restart: always
+    environment:
+      # replace API_URL with the correct url
+      - API_URL=http://localhost:8080/
+      - DEBUG=false
+    ports:
+      - "8081:80"
+    networks:
+      - provaloginnet
+
+  postgre-db:
+    image: postgres:14.6-alpine
+    container_name: postgre-db
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=<your-database-password>
+      #- POSTGRES_DB=rainbow_database
+    networks:
+      - provaloginnet
+    volumes:
+      - database-data:/var/lib/postgresql/data/
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    # use ports config if you want to expose database to external access
+    #ports:
+    #  - "5432:5432"
+
+
+  prova-login-db-init-migrate:
+    image:  palex/prova-login-db-init-migrate:1.0.0
+    build:
+      context: ./login-app-db-initializer
+      dockerfile: Dockerfile
+    container_name: prova-login-db-init-migrate
+    environment:
+      - DATABASE_USER=postgres
+      - DATABASE_PASSWORD=<your-database-password>
+      - DATABASE_HOST=postgre-db
+      - DATABASE_PORT=5432
+    depends_on:
+      postgre-db:
+        condition: service_healthy
+    networks:
+      - provaloginnet
+
+  
+volumes:
+  database-data:
+
+
+networks:
+  provaloginnet:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 10.249.9.0/24 # Avoid address collision with local network

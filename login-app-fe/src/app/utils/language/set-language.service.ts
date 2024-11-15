@@ -19,7 +19,7 @@ export class SetLanguageService {
     }
 
     private setBrowserLanguage(): void{
-        this.translate.addLangs(['it'/*, 'en'*/]);
+        this.translate.addLangs(['it', 'en']);
         let defaultLang = this.getLanguage(this.translate.getBrowserLang());
         this.translate.setDefaultLang( defaultLang );
         //console.log(defaultLang);
@@ -47,11 +47,11 @@ export class SetLanguageService {
         case 'it': {
             return 'it';
         }
-        /*case 'en' :{
+        case 'en' :{
             return 'en';
-        }*/
+        }
         default : {
-            return 'it';
+            return 'en';
         }
         }
     }
@@ -59,7 +59,7 @@ export class SetLanguageService {
 
     changeLang(lang: string) {
         this.translate.langs=[];
-        this.translate.addLangs(['it'/*, 'en'*/]);
+        this.translate.addLangs(['it', 'en']);
         
         let toSet = this.getLanguage(lang);
         this.saveSessionCurrentLanguage(toSet);
