@@ -20,7 +20,7 @@ application:
 swagger:
   api:
     title: Prova Login
-    description: Prova Login Service (Test FAAC)
+    description: Prova Login Service
     version: 1.0.0
     termsOfServiceUrl:
     contact.name: Alessandro Pagliaro
